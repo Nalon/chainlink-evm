@@ -27,7 +27,8 @@ $ npm install @chainlink/contracts --save
 ### Update your project's remappings
 
 #### Foundry/Hardhat 3:
-Foundry and Hardhat 3 can consume a `remappings.txt` file from the project root. Create or update `remappings.txt` with:
+
+[Foundry](https://getfoundry.sh/guides/project-setup/project-layout#project-layout) and [Hardhat 3](https://hardhat.org/docs) consume a `remappings.txt` file from the project root. Create or update `remappings.txt` with:
 
 ```
 @chainlink/=node_modules/@chainlink
@@ -45,6 +46,8 @@ Foundry and Hardhat 3 can consume a `remappings.txt` file from the project root.
 
 If your compilation reports unresolved imports from dependencies, add the corresponding additional remappings to `remappings.txt` (the format is `<prefix>=<resolved-path>/`).
 
+See the [Foundry starter kit](https://github.com/smartcontractkit/foundry-starter-kit) or [Hardhat 3 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/tree/hardhat3) for working examples.
+
 #### Foundry (Optional):
 
 In your project's `foundry.toml`, update the libs array to include the `node_modules` directory.
@@ -53,74 +56,9 @@ In your project's `foundry.toml`, update the libs array to include the `node_mod
 libs = ['lib', "node_modules"]
 ```
 
-#### Hardhat 2 (pre-processor):
+#### Hardhat 2 (preprocessor):
 
-Hardhat 2 does not read `remappings.txt` natively. Use a small pre-processor to rewrite import paths at compile-time so they resolve properly.
-
-1. Install the preprocessor helper:
-
-```sh
-npm i -D hardhat-preprocessor
-# or
-pnpm add -D hardhat-preprocessor
-```
-
-2. Add a `remappings.txt` at the project root (so the same file can be shared with Foundry), for example:
-
-```
-@chainlink/=node_modules/@chainlink
-@openzeppelin/contracts@4.7.3=node_modules/@openzeppelin/contracts-4.7.3
-@openzeppelin/contracts@4.8.3=node_modules/@openzeppelin/contracts-4.8.3
-@openzeppelin/contracts@4.9.6=node_modules/@openzeppelin/contracts-4.9.6
-@openzeppelin/contracts@5.0.2=node_modules/@openzeppelin/contracts-5.0.2
-@openzeppelin/contracts@5.1.0=node_modules/@openzeppelin/contracts-5.1.0
-@openzeppelin/contracts-upgradeable/=node_modules/@openzeppelin/contracts-upgradeable/
-@arbitrum/=node_modules/@arbitrum/
-@eth-optimism/=node_modules/@eth-optimism/
-@scroll-tech/=node_modules/@scroll-tech/
-@zksync/=node_modules/@zksync/
-```
-
-3. Configure `hardhat.config.ts` (or `.js`) to apply the remappings to import lines:
-
-```ts
-import { HardhatUserConfig } from "hardhat/config";
-import "hardhat-preprocessor";
-import fs from "fs";
-
-function readRemappings() {
-  try {
-    return fs
-      .readFileSync("remappings.txt", "utf8")
-      .split("\n")
-      .filter(Boolean)
-      .map((line) => line.trim().split("="));
-  } catch {
-    return [] as string[][];
-  }
-}
-
-const config: HardhatUserConfig = {
-  solidity: {
-    version: "0.8.20",
-    settings: { optimizer: { enabled: true, runs: 200 } },
-  },
-  preprocess: {
-    eachLine: (line: string) => {
-      if (line.match(/^\s*import\s/)) {
-        for (const [find, replace] of readRemappings()) {
-          line = line.replaceAll(find, replace);
-        }
-      }
-      return line;
-    },
-  },
-};
-
-export default config;
-```
-
-> This approach lets Hardhat 2 effectively “honor” the same `remappings.txt` you maintain for Foundry/Hardhat 3.
+Hardhat 2 does not read `remappings.txt` natively as seen in Foundry/Hardhat 3. To remap the import paths, you may opt to use a preprocessor that remaps the import paths at compile time. To see remapping examples in Hardhat 2, review the [Hardhat 2 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/tree/hardhat2).
 
 #### Remix (no extra setup)
 
