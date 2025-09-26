@@ -72,7 +72,7 @@ import "@chainlink/contracts/src/v0.8/...";
 
 > [!IMPORTANT]
 > Since v1.5.0 of the Chainlink contracts, ABI files have been reorganized into subdirectories.
-> Additionally, ABI files now folow a slighlty updated naming scheme.
+> Additionally, ABI files now follow a slighlty updated naming scheme.
 
 ```sh
 @chainlink/contracts
