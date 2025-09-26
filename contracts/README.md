@@ -26,7 +26,7 @@ $ npm install @chainlink/contracts --save
 
 ### Update your project's remappings
 
-#### Foundry/Hardhat 3:
+#### Foundry & Hardhat 3:
 
 [Foundry](https://getfoundry.sh/guides/project-setup/project-layout#project-layout) and [Hardhat 3](https://hardhat.org/docs) consume a `remappings.txt` file from the project root. Create or update `remappings.txt` with:
 
@@ -56,13 +56,13 @@ In your project's `foundry.toml`, update the libs array to include the `node_mod
 libs = ['lib', "node_modules"]
 ```
 
-#### Hardhat 2 (preprocessor):
+#### Hardhat 2:
 
 Hardhat 2 does not read `remappings.txt` natively as seen in Foundry/Hardhat 3. To remap the import paths, you may opt to use a preprocessor that remaps the import paths at compile time. To see remapping examples in Hardhat 2, review the [Hardhat 2 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/tree/hardhat2).
 
-#### Remix (no extra setup)
+#### Remix:
 
-Remix works out of the box. Use standard imports and compile:
+Remix works out of the box and requires no additional setup. Use standard imports and compile:
 
 ```solidity
 import "@chainlink/contracts/src/v0.8/...";
