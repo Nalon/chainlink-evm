@@ -53,12 +53,12 @@ See the [Foundry starter kit](https://github.com/smartcontractkit/foundry-starte
 In your project's `foundry.toml`, update the libs array to include the `node_modules` directory.
 
 ```
-libs = ['lib', "node_modules"]
+libs = ["lib", "node_modules"]
 ```
 
 #### Hardhat 2:
 
-Hardhat 2 does not read `remappings.txt` natively as seen in Foundry/Hardhat 3. To remap the import paths, you may opt to use a preprocessor that remaps the import paths at compile time. To see remapping examples in Hardhat 2, review the [Hardhat 2 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/tree/hardhat2).
+Hardhat 2 does not read `remappings.txt` natively as seen in Foundry/Hardhat 3. To remap import paths, you may use a preprocessor handles this at compile time. To see remapping examples in Hardhat 2, review the [Hardhat 2 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/tree/hardhat2).
 
 #### Remix:
 
@@ -72,19 +72,19 @@ import "@chainlink/contracts/src/v0.8/...";
 
 > [!IMPORTANT]
 > Since v1.5.0 of the Chainlink contracts, ABI files have been reorganized into subdirectories.
-> Additionally, ABI files have seen a minor change in naming scheme.
+> Additionally, ABI files now folow a slighlty updated naming scheme.
 
 ```sh
 @chainlink/contracts
 ├── src # Solidity contracts
 │   └── v0.8
-└── abi # ABI json output
+└── abi # ABI JSON output
     └── v0.8
 ```
 
 ### Usage
 
-The solidity smart contracts themselves can be imported via the `src` directory of `@chainlink/contracts`:
+The Solidity smart contracts themselves can be imported via the `src` directory of `@chainlink/contracts`:
 
 ```solidity
 import {IVerifier} from '@chainlink/contracts/src/v0.8/llo-feeds/v0.5.0/interfaces/IVerifier.sol';
@@ -111,7 +111,7 @@ export FOUNDRY_PROFILE=<project>
 forge test
 ```
 
-To test the llo-feeds (data steams) project:
+To test the llo-feeds (data streams) project:
 
 ```bash
 export FOUNDRY_PROFILE=llo-feeds
@@ -132,7 +132,7 @@ Thank you!
 
 We use [changesets](https://github.com/changesets/changesets) to manage versioning the contracts.
 
-Every PR that modifies any configuration or code, should most likely accompanied by a changeset file.
+Every PR that modifies any configuration or code, should most likely be accompanied by a changeset file.
 
 To install `changesets`:
 
