@@ -67,7 +67,7 @@ If you wish to utilize `forge install`, please see the [Foundry starter kit](htt
 
 ### Step 2: Define the external library directory
 
-As we are using `npm`/`pnpm` as our package manager, define `node_modules` as an external library directory.
+As we are using `npm`/`pnpm` as our package manager, define `node_modules` as an external library directory. This ensures Foundry recognizes dependencies installed via npm/pnpm.
 
 In your project's `foundry.toml`, update the libs array to include the `node_modules` directory.
 
@@ -98,6 +98,12 @@ Setup your project's remappings. See the [Foundry documentation](https://getfoun
 If your compilation reports unresolved imports from dependencies, add the corresponding additional remappings to `remappings.txt` (the format is `<prefix>=<resolved-path>/`).
 
 See the [Foundry starter kit](https://github.com/smartcontractkit/foundry-starter-kit) for working examples.
+
+### Step 4: Usage
+
+```solidity
+import {IVerifier} from '@chainlink/contracts/src/v0.8/llo-feeds/v0.5.0/interfaces/IVerifier.sol';
+```
 </details>
 
 <details id="hardhat-3">
@@ -137,6 +143,11 @@ If your compilation reports unresolved imports from dependencies, add the corres
 
 See the [Hardhat 3 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/tree/hardhat3) for working examples.
 
+### Step 3: Usage
+
+```solidity
+import {IVerifier} from '@chainlink/contracts/src/v0.8/llo-feeds/v0.5.0/interfaces/IVerifier.sol';
+```
 </details>
 
 
@@ -159,6 +170,12 @@ $ npm install @chainlink/contracts --save
 
 Hardhat 2 does not read `remappings.txt` natively as seen in Foundry/Hardhat 3. To remap import paths, you may use a preprocessor that handles this at compile time. To see remapping examples in Hardhat 2, review the [Hardhat 2 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/tree/hardhat2).
 
+### Step 3: Usage
+
+```solidity
+import {IVerifier} from '@chainlink/contracts/src/v0.8/llo-feeds/v0.5.0/interfaces/IVerifier.sol';
+```
+
 </details>
 
 
@@ -168,7 +185,7 @@ Hardhat 2 does not read `remappings.txt` natively as seen in Foundry/Hardhat 3. 
 Remix works out of the box and requires no additional setup or installation. The imported dependencies will be automatically installed.
 
 ```solidity
-import "@chainlink/contracts/src/v0.8/...";
+import {IVerifier} from '@chainlink/contracts/src/v0.8/llo-feeds/v0.5.0/interfaces/IVerifier.sol';
 ```
 
 </details>
