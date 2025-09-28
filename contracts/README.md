@@ -141,7 +141,7 @@ $ npm install @chainlink/contracts --save
 
 If your compilation reports unresolved imports from dependencies, add the corresponding additional remappings to `remappings.txt` (the format is `<prefix>=<resolved-path>/`).
 
-See the [Hardhat 3 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/tree/hardhat3) for working examples.
+See the [Hardhat 3 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/) for working examples.
 
 ### Step 3: Usage
 
@@ -168,7 +168,7 @@ $ npm install @chainlink/contracts --save
 
 ### Step 2: Setup remappings
 
-Hardhat 2 does not read `remappings.txt` natively as seen in Foundry/Hardhat 3. To remap import paths, you may use a preprocessor that handles this at compile time. To see remapping examples in Hardhat 2, review the [Hardhat 2 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/tree/hardhat2).
+Hardhat 2 does not read `remappings.txt` natively as seen in Foundry/Hardhat 3. To remap import paths, you may use a preprocessor that handles this at compile time. To see remapping examples in Hardhat 2, review the [Hardhat 2 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/).
 
 ### Step 3: Usage
 
