@@ -97,17 +97,20 @@ Setup your project's remappings. See the [Foundry documentation](https://getfoun
 
 If your compilation reports unresolved imports from dependencies, add the corresponding additional remappings to `remappings.txt` (the format is `<prefix>=<resolved-path>/`).
 
-See the [Foundry starter kit](https://github.com/smartcontractkit/foundry-starter-kit) for working examples.
-
 ### Step 4: Usage
 
 ```solidity
 import {IVerifier} from '@chainlink/contracts/src/v0.8/llo-feeds/v0.5.0/interfaces/IVerifier.sol';
 ```
+
+See the [Foundry starter kit](https://github.com/smartcontractkit/foundry-starter-kit) for working examples.
+
 </details>
 
 <details id="hardhat-3">
 <summary>Hardhat 3</summary>
+
+Hardhat 3 supports `remappings.txt` files in your project, as well as in git submodules and npm dependencies. Each `remappings.txt` file applies to the directory where it's located and all its subdirectories, similar to how .gitignore works. Hardhat 3 will utilize the `remappings.txt` file located within the root directory of the Chainlink contracts package.
 
 ### Step 1: Install the package
 
@@ -121,33 +124,14 @@ $ pnpm add @chainlink/contracts
 $ npm install @chainlink/contracts --save
 ```
 
-### Step 2: Setup remappings
-
-[Hardhat 3](https://hardhat.org/docs) consumes a `remappings.txt` file from the project root. Create or update `remappings.txt` with:
-
-```
-@chainlink/=node_modules/@chainlink
-@openzeppelin/contracts@4.7.3=node_modules/@openzeppelin/contracts-4.7.3
-@openzeppelin/contracts@4.8.3=node_modules/@openzeppelin/contracts-4.8.3
-@openzeppelin/contracts@4.9.6=node_modules/@openzeppelin/contracts-4.9.6
-@openzeppelin/contracts@5.0.2=node_modules/@openzeppelin/contracts-5.0.2
-@openzeppelin/contracts@5.1.0=node_modules/@openzeppelin/contracts-5.1.0
-@openzeppelin/contracts-upgradeable/=node_modules/@openzeppelin/contracts-upgradeable/
-@arbitrum/=node_modules/@arbitrum/
-@eth-optimism/=node_modules/@eth-optimism/
-@scroll-tech/=node_modules/@scroll-tech/
-@zksync/=node_modules/@zksync/
-```
-
-If your compilation reports unresolved imports from dependencies, add the corresponding additional remappings to `remappings.txt` (the format is `<prefix>=<resolved-path>/`).
-
-See the [Hardhat 3 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/) for working examples.
-
-### Step 3: Usage
+### Step 2: Usage
 
 ```solidity
 import {IVerifier} from '@chainlink/contracts/src/v0.8/llo-feeds/v0.5.0/interfaces/IVerifier.sol';
 ```
+
+See the [Hardhat 3 starter kit](https://github.com/smartcontractkit/hardhat-starter-kit/) for working examples.
+
 </details>
 
 
