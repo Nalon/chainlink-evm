@@ -67,7 +67,7 @@ If you wish to utilize `forge install`, please see the [Foundry starter kit](htt
 
 ### Step 2: Define the external library directory
 
-As we are using `npm`/`pnpm` as our package manager, define `node_modules` as an external library directory. This ensures Foundry recognizes dependencies installed via npm/pnpm.
+As we are using `npm`/`pnpm` as our package manager, define `node_modules` as an external library directory. This ensures Foundry recognizes dependencies installed via `npm`/`pnpm`.
 
 In your project's `foundry.toml`, update the libs array to include the `node_modules` directory.
 
