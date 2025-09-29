@@ -110,8 +110,6 @@ See the [Foundry starter kit](https://github.com/smartcontractkit/foundry-starte
 <details id="hardhat-3">
 <summary>Hardhat 3</summary>
 
-Hardhat 3 supports `remappings.txt` files in your project, as well as in git submodules and npm dependencies. Each `remappings.txt` file applies to the directory where it's located and all its subdirectories, similar to how .gitignore works. Hardhat 3 will utilize the `remappings.txt` file located within the root directory of the Chainlink contracts package.
-
 ### Step 1: Install the package
 
 ```sh
@@ -123,6 +121,8 @@ $ pnpm add @chainlink/contracts
 # npm
 $ npm install @chainlink/contracts --save
 ```
+
+Hardhat 3 supports `remappings.txt` files in your project, as well as in git submodules and npm dependencies. Each `remappings.txt` file applies to the directory where it's located and all its subdirectories, similar to how .gitignore works. Hardhat 3 will utilize the `remappings.txt` file located within the root directory of the Chainlink contracts package.
 
 ### Step 2: Usage
 
