@@ -7,7 +7,7 @@ src = 'src/'
 test = 'test/'
 out = 'foundry-artifacts'
 cache_path = 'foundry-cache'
-libs = ['node_modules']
+libs = ['node_modules', "dependencies"]
 bytecode_hash = "none"
 ffi = false
 
@@ -24,6 +24,10 @@ single_line_statement_blocks = "preserve"
 ignore = ["src/v0.8/vendor/**/*.sol"]
 number_underscore = "thousands"
 wrap_comments = true
+
+[dependencies]
+forge-std = "1.10.0"
+"@openzeppelin-contracts" = "5.1.0"
 
 [profile.functions]
 optimizer_runs = 1_000_000
